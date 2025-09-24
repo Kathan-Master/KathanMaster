@@ -17,7 +17,7 @@ app.post('/contact', async (req, res) => {
     }
 
     const telegramMessage = `
-📩 *New Contact Form Submission*
+📩 *Form Submission*
 ━━━━━━━━━━━━━━━
 👤 *Name:* ${first_name} ${last_name}
 📧 *Email:* ${user_email}
@@ -44,3 +44,4 @@ ${message}
 app.listen(process.env.PORT || 3000, () => {
   console.log('Backend running...');
 });
+
