@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KATHAN MASTER | Home</title>
+    <link rel="icon" href="me.jpg" type="image/png" sizes="32x32">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <style>
+        .theme-transition {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border: 4px solid #3B82F6;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        .dark .profile-img {
+            border-color: #60A5FA;
+            box-shadow: 0 10px 25px rgba(96, 165, 250, 0.3);
+        }
+    </style>
+</head>
+<body class="theme-transition bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
+    <!-- Theme Toggle -->
+    <button id="themeToggle" class="fixed top-2 right-4 z-10 p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg">
+        <i data-feather="moon" class="hidden dark:block"></i>
+        <i data-feather="sun" class="block dark:hidden"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-20 z-40 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">Kathan Master</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Home</a>
+                    <a href="projects.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
+                    <!-- <a href="blog.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Blog</a> -->
+                    <a href="media.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Media</a>
+                    <a href="contact.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="md:hidden focus:outline-none">
+                    <i data-feather="menu"></i>
+                </button>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="max-h-0 overflow-hidden flex-col space-y-4 px-6 pb-0 md:hidden transition-[max-height] duration-500 ease-in-out">
+                    <a href="index.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Home</a><br>
+                    <a href="projects.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Projects</a><br>
+                    <!-- <a href="blog.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Blog</a><br> -->
+                    <a href="media.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Media</a><br>
+                    <a href="contact.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Contact</a><br>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center pt-20 pb-16">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <div class="flex-1 flex justify-center" data-aos="fade-right">
+                    <div class="relative inline-block">
+                        <img src="me.jpg" alt="Profile" class="profile-img rounded-full">
+                    </div>
+                </div>
+                <div class="flex-1 text-center md:text-left" data-aos="fade-left">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Hello, I'm <span class="text-blue-600 dark:text-blue-400">KATHAN MASTER</span></h1>
+                    <p class="text-xl mb-8 text-gray-600 dark:text-gray-300">Electronics & IoT Enthusiast | Passionate about Drone Technology, Automation, and Embedded Systems | Skilled in Arduino, Raspberry Pi, and IoT Development </p>
+                    
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-semibold mb-4">Education</h2>
+                        <p class="mb-2">Bachelor's in Electronics and Communication - Gujarat Technology University (2022-2025)</p>
+                        <p>Diploma in Electrical Engineering - Uka Tarsadia University (2019-2022)</p>
+                    </div>
+
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-semibold mb-4">Hobbies & Activities</h2>
+                        <ul class="grid grid-cols-2 gap-2">
+                            <li class="flex items-center"><i data-feather="code" class="mr-2 text-blue-600 dark:text-blue-400"></i> Coding</li>
+                            <li class="flex items-center"><i data-feather="camera" class="mr-2 text-blue-600 dark:text-blue-400"></i> Photography</li>
+                            <li class="flex items-center"><i data-feather="video" class="mr-2 text-blue-600 dark:text-blue-400"></i> Video-Editing</li>
+                            <li class="flex items-center"><i data-feather="cpu" class="mr-2 text-blue-600 dark:text-blue-400"></i> IoT | Drone | Micro-Controller </li>
+                        </ul>
+                    </div>
+
+                    <a href="KATHAN MASTER.pdf" download class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        <i data-feather="download" class="mr-2"></i>
+                        Download Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-gray-200 dark:bg-gray-800 p-6">
+        <!-- Container -->
+        <div class="flex flex-col md:flex-row justify-center items-center md:space-x-20 text-center md:text-left">
+            
+            <!-- Navigation links -->
+            <nav class="flex flex-col space-y-3">
+                <p class="font-medium text-gray-700 dark:text-gray-300"><strong> About Me</strong></p>
+                <a href="index.html" class="hover:underline">Home</a>
+                <a href="projects.html" class="hover:underline">My Projects</a>
+                <!-- <a href="blog.html" class="hover:underline">Blog</a> -->
+                <a href="media.html" class="hover:underline">Media</a>
+                <a href="contact.html" class="hover:underline">Contact</a>
+            </nav>
+                <br>
+            <!-- Social links -->
+            <div class="flex flex-col space-y-3 mb-6 md:mb-0">
+                <p class="font-medium text-gray-700 dark:text-gray-300"><strong>Follow Me On</strong></p>
+                <a href="https://github.com/Kathan-Master" target="_blank" class="hover:underline">GitHub</a>
+                <a href="https://www.youtube.com/@kathanmaster" target="_blank" class="hover:underline">YouTube</a>
+                <a href="https://www.instagram.com/_master_kathan_" target="_blank" class="hover:underline">Instagram</a>
+                <a href="https://www.linkedin.com/in/kathan-master" target="_blank" class="hover:underline">LinkedIn</a>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <p class="text-gray-700 dark:text-gray-300 mt-6 text-center">
+            &copy; 2025 Kathan Master. All rights reserved. | Design by Kathan Master.
+        </p>
+    </footer>
+    <script>
+        // Theme management
+        const themeToggle = document.getElementById('themeToggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+            document.documentElement.classList.add('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        });
+        
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', () => {
+        feather.replace(); // Initialize feather icons
+
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+        if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+            // Close menu
+            menu.style.maxHeight = '0';
+        } else {
+            // Open menu (set to scrollHeight for smooth slide)
+            menu.style.maxHeight = menu.scrollHeight + "px";
+        }
+        });
+    });
+        // Initialize animations and icons
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            feather.replace();
+        });
+    </script>
+</body>
+</html>
