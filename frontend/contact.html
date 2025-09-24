@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Contact</title>
+    <link rel="icon" href="me.jpg" type="image/png" sizes="32x32">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="telegram.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <style>
+        .theme-transition {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .contact-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        .form-input {
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.1);
+        }
+        .dark .form-input:focus {
+            box-shadow: 0 5px 15px rgba(96, 165, 250, 0.1);
+        }
+    </style>
+</head>
+<body class="theme-transition bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
+    <!-- Theme Toggle -->
+    <button id="themeToggle" class="fixed top-2 right-4 z-10 p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg">
+        <i data-feather="moon" class="hidden dark:block"></i>
+        <i data-feather="sun" class="block dark:hidden"></i>
+    </button>
+
+    <nav class="fixed top-0 left-0 right-20 z-40 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">Kathan Master</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Home</a>
+                    <a href="projects.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
+                    <!-- <a href="blog.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Blog</a> -->
+                    <a href="media.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Media</a>
+                    <a href="contact.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="md:hidden focus:outline-none">
+                    <i data-feather="menu"></i>
+                </button>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="max-h-0 overflow-hidden flex-col space-y-4 px-6 pb-0 md:hidden transition-[max-height] duration-500 ease-in-out">
+                <a href="index.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Home</a><br>
+                <a href="projects.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Projects</a><br>
+                <!-- <a href="blog.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Blog</a><br> -->
+                <a href="media.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Media</a><br>
+                <a href="contact.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Contact</a><br>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="min-h-screen pt-24 pb-16">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl font-bold text-center mb-16" data-aos="fade-down">Get In Touch</h1>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div data-aos="fade-right">
+                    <h2 class="text-2xl font-semibold mb-8">Let's work together</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-8">I'm always interested in new opportunities, collaborations, or just a friendly chat about technology and design. Feel free to reach out through any of the channels below.</p>
+                    
+                    <div class="space-y-6">
+                        <!-- Email -->
+                        <div class="contact-card flex items-center p-4 bg-white dark:bg-gray-800 rounded-xl shadow-md">
+                            <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full mr-4">
+                                <i data-feather="mail" class="text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Email</h3>
+                                <p class="text-gray-600 dark:text-gray-300"> 
+                                    <a href="mailto:kathanmaster14@gmail.com">kathanmaster14@gmail.com</a></p>
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="contact-card flex items-center p-4 bg-white dark:bg-gray-800 rounded-xl shadow-md">
+                            <div class="p-3 bg-green-100 dark:bg-green-900/30 rounded-full mr-4">
+                                <i data-feather="phone" class="text-green-600 dark:text-green-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Phone</h3>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    <a href="tel:+919499506064">+91-9499506064</a></p>
+                            </div>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="contact-card flex items-center p-4 bg-white dark:bg-gray-800 rounded-xl shadow-md">
+                            <div class="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-full mr-4">
+                                <i data-feather="map-pin" class="text-purple-600 dark:text-purple-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Location</h3>
+                                <p class="text-gray-600 dark:text-gray-300">Gujarat, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Social Media -->
+                    <div class="flex justify-center space-x-6 mt-6">
+                        <a href="https://github.com/Kathan-Master" class="p-3 bg-gray-100 dark:bg-gray-800 rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors">
+                            <i data-feather="github" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/kathan-master" class="p-3 bg-gray-100 dark:bg-gray-800 rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors">
+                            <i data-feather="linkedin" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"></i>
+                        </a>
+                        <a href="https://youtube.com/@kathanmaster" class="p-3 bg-gray-100 dark:bg-gray-800 rounded-full hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors">
+                            <i data-feather="youtube" class="text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400"></i>
+                        </a>
+                        <a href="https://www.instagram.com/_master_kathan_/" class="p-3 bg-gray-100 dark:bg-gray-800 rounded-full hover:bg-pink-100 dark:hover:bg-pink-900/30 transition-colors">
+                            <i data-feather="instagram" class="text-gray-600 dark:text-gray-300 hover:text-pink-600 dark:hover:text-pink-400"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div data-aos="fade-left">
+                <h2 class="text-2xl font-semibold mb-8">Send me a message</h2>
+                <form id="contact-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block mb-2 font-medium">First Name</label>
+                        <input type="text" name="first_name" class="form-input w-full p-3 border rounded-lg dark:bg-gray-800 dark:border-gray-700" required>
+                    </div>
+                    <div>
+                        <label class="block mb-2 font-medium">Last Name</label>
+                        <input type="text" name="last_name" class="form-input w-full p-3 border rounded-lg dark:bg-gray-800 dark:border-gray-700" required>
+                    </div>
+                    </div>
+                    <div>
+                    <label class="block mb-2 font-medium">Email</label>
+                    <input type="email" name="user_email" class="form-input w-full p-3 border rounded-lg dark:bg-gray-800 dark:border-gray-700" required>
+                    </div>
+                    <div>
+                    <label class="block mb-2 font-medium">Subject</label>
+                    <input type="text" name="subject" class="form-input w-full p-3 border rounded-lg dark:bg-gray-800 dark:border-gray-700" required>
+                    </div>
+                    <div>
+                    <label class="block mb-2 font-medium">Message</label>
+                    <textarea name="message" rows="5" class="form-input w-full p-3 border rounded-lg dark:bg-gray-800 dark:border-gray-700" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    Send Message
+                    </button>
+                </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="bg-gray-200 dark:bg-gray-800 p-6">
+        <!-- Container -->
+        <div class="flex flex-col md:flex-row justify-center items-center md:space-x-20 text-center md:text-left">
+            
+            <!-- Navigation links -->
+            <nav class="flex flex-col space-y-3">
+                <p class="font-medium text-gray-700 dark:text-gray-300"><strong> About Me</strong></p>
+                <a href="index.html" class="hover:underline">Home</a>
+                <a href="projects.html" class="hover:underline">My Projects</a>
+                <!-- <a href="blog.html" class="hover:underline">Blog</a> -->
+                <a href="media.html" class="hover:underline">Media</a>
+                <a href="contact.html" class="hover:underline">Contact</a>
+            </nav>
+                <br>
+            <!-- Social links -->
+            <div class="flex flex-col space-y-3 mb-6 md:mb-0">
+                <p class="font-medium text-gray-700 dark:text-gray-300"><strong>Follow Me On</strong></p>
+                <a href="https://github.com/Kathan-Master" target="_blank" class="hover:underline">GitHub</a>
+                <a href="https://www.youtube.com/@kathanmaster" target="_blank" class="hover:underline">YouTube</a>
+                <a href="https://www.instagram.com/_master_kathan_" target="_blank" class="hover:underline">Instagram</a>
+                <a href="https://www.linkedin.com/in/kathan-master" target="_blank" class="hover:underline">LinkedIn</a>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <p class="text-gray-700 dark:text-gray-300 mt-6 text-center">
+            &copy; 2025 Kathan Master. All rights reserved. | Design by Kathan Master.
+        </p>
+    </footer>
+    <script>
+        // Theme management
+        const themeToggle = document.getElementById('themeToggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+            document.documentElement.classList.add('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Form submission handling
+        const BACKEND_URL = "https://your-backend.onrender.com/contact"; // Replace with your actual Render URL
+
+        document.getElementById("contact-form").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const formData = {
+                first_name: form.first_name.value,
+                last_name: form.last_name.value,
+                user_email: form.user_email.value,
+                subject: form.subject.value,
+                message: form.message.value
+            };
+
+            try {
+                const response = await fetch(BACKEND_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    alert("Your message has been sent successfully!");
+                    form.reset();
+                } else {
+                    alert("Failed to send message: " + data.error);
+                }
+            } catch (error) {
+                alert("Network error: " + error.message);
+            }
+        });
+
+
+
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', () => {
+        feather.replace(); // Initialize feather icons
+
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+        if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+            // Close menu
+            menu.style.maxHeight = '0';
+        } else {
+            // Open menu (set to scrollHeight for smooth slide)
+            menu.style.maxHeight = menu.scrollHeight + "px";
+        }
+        });
+    });
+    
+        // Initialize animations and icons
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            feather.replace();
+        });
+    </script>
+</body>
+</html>
