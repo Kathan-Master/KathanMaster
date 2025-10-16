@@ -11,6 +11,8 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -95,7 +97,9 @@
                             <li class="flex items-center"><i data-feather="code" class="mr-2 text-blue-600 dark:text-blue-400"></i> Coding</li>
                             <li class="flex items-center"><i data-feather="camera" class="mr-2 text-blue-600 dark:text-blue-400"></i> Photography</li>
                             <li class="flex items-center"><i data-feather="video" class="mr-2 text-blue-600 dark:text-blue-400"></i> Video-Editing</li>
-                            <li class="flex items-center"><i data-feather="cpu" class="mr-2 text-blue-600 dark:text-blue-400"></i> IoT | Drone | Micro-Controller </li>
+                            <li class="flex items-center"><i data-lucide="house-wifi" class="mr-2 text-blue-600 dark:text-blue-400"></i> IoT</li>
+                            <li class="flex items-center"><i data-lucide="drone" class="mr-2 text-blue-600 dark:text-blue-400"></i>Drone Pilot | Knowledge </li>
+                            <li class="flex items-center"><i data-lucide="microchip" class="mr-2 text-blue-600 dark:text-blue-400"></i>Micro-Controller</li>
                         </ul>
                     </div>
 
@@ -176,7 +180,10 @@
                 once: true
             });
             feather.replace();
+            lucide.createIcons(); // Render Lucide icons
+
         });
     </script>
 </body>
 </html>
+
