@@ -31,25 +31,23 @@ def fetch_youtube_videos():
 
 # --- GENERATE YOUTUBE HTML CARDS ---
 def generate_video_cards(videos):
-    html = '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">'
-    for video in videos:
-        html += f"""
-        <div class="media-card" data-aos="zoom-in">
-            <div class="video-container mb-3 aspect-video">
-                <iframe class="w-full h-48 rounded-xl"
-                    src="https://www.youtube.com/embed/{video['id']}"
-                    title="{video['title']}"
-                    frameborder="0"
-                    allowfullscreen
-                    loading="lazy">
-                </iframe>
-            </div>
-            <p class="text-gray-600 dark:text-gray-300 text-sm font-medium line-clamp-2">{video['title']}</p>
+    return """
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 sm:px-8 lg:px-12">
+    """ + "\n".join(
+        f"""
+        <div class="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-transform transform hover:-translate-y-1">
+            <iframe class="w-full aspect-video rounded-xl" 
+                src="https://www.youtube.com/embed/{v['videoId']}" 
+                title="{v['title']}" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+            <p class="mt-3 text-gray-700 dark:text-gray-300 text-sm font-medium">{v['title']}</p>
         </div>
         """
-    html += "</div>"
-    return html.strip()
-
+        for v in videos
+    ) + "\n</div>"
 
 # --- UPDATE MEDIA.HTML SAFELY ---
 def update_media_html(new_html):
