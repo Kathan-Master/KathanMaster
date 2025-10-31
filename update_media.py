@@ -32,22 +32,29 @@ def fetch_youtube_videos():
 # --- GENERATE YOUTUBE HTML CARDS ---
 def generate_video_cards(videos):
     return """
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 sm:px-8 lg:px-12">
+    <div class="w-full flex justify-center">
+        <div class="w-full max-w-7xl px-6 sm:px-8 lg:px-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
     """ + "\n".join(
         f"""
-        <div class="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-transform transform hover:-translate-y-1">
-            <iframe class="w-full aspect-video rounded-xl" 
-                src="https://www.youtube.com/embed/{v['videoId']}" 
-                title="{v['title']}" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
-            <p class="mt-3 text-gray-700 dark:text-gray-300 text-sm font-medium">{v['title']}</p>
-        </div>
+                <div class="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-transform transform hover:-translate-y-1">
+                    <iframe class="w-full aspect-video rounded-xl"
+                        src="https://www.youtube.com/embed/{v['videoId']}"
+                        title="{v['title']}"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                    <p class="mt-3 text-gray-700 dark:text-gray-300 text-sm font-medium">{v['title']}</p>
+                </div>
         """
         for v in videos
-    ) + "\n</div>"
+    ) + """
+            </div>
+        </div>
+    </div>
+    """
+
 
 # --- UPDATE MEDIA.HTML SAFELY ---
 def update_media_html(new_html):
