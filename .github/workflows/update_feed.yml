@@ -1,0 +1,40 @@
+name: Update YouTube Feed Daily
+
+on:
+  schedule:
+    # Runs the job every day at 00:00 UTC (12 AM)
+    # Adjust this cron schedule as needed (e.g., '0 */6 * * *' for every 6 hours)
+    - cron: '0 0 * * *' 
+  workflow_dispatch:
+    # Allows manual trigger
+
+jobs:
+  update-content:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          # We need the requests library to talk to the YouTube API
+          pip install requests
+
+      - name: Run Python Automation Script
+        run: python update_media.py
+        env:
+          # This variable pulls the secret you created in Step 1
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          # NOTE: You MUST update the CHANNEL_ID inside update_media.py manually.
+
+      - name: Commit and Push Updated HTML
+        # This action checks for changes in the repository and commits them.
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 Auto-update: Latest YouTube videos"
+          branch: ${{ github.ref_name }} # Commits back to the current branch (e.g., main)
