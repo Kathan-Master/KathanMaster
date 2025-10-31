@@ -33,8 +33,8 @@ def fetch_youtube_videos():
 def generate_video_cards(videos):
     return """
     <div class="w-full flex justify-center">
-        <div class="w-full max-w-7xl px-6 sm:px-8 lg:px-12">
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div class="w-full max-w-6xl px-3 sm:px-4 lg:px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
     """ + "\n".join(
         f"""
                 <div class="overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-transform transform hover:-translate-y-1">
@@ -45,7 +45,7 @@ def generate_video_cards(videos):
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
                     </iframe>
-                    <p class="mt-3 text-gray-700 dark:text-gray-300 text-sm font-medium">{v['title']}</p>
+                    <p class="mt-2 text-gray-700 dark:text-gray-300 text-sm font-medium">{v['title']}</p>
                 </div>
         """
         for v in videos
@@ -54,7 +54,6 @@ def generate_video_cards(videos):
         </div>
     </div>
     """
-
 
 # --- UPDATE MEDIA.HTML SAFELY ---
 def update_media_html(new_html):
