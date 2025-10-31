@@ -31,19 +31,23 @@ def fetch_youtube_videos():
 
 # --- GENERATE YOUTUBE HTML CARDS ---
 def generate_video_cards(videos):
-    html = ""
+    html = '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">'
     for video in videos:
         html += f"""
         <div class="media-card" data-aos="zoom-in">
-            <div class="video-container mb-3">
-                <iframe width="560" height="315"
+            <div class="video-container mb-3 aspect-video">
+                <iframe class="w-full h-48 rounded-xl"
                     src="https://www.youtube.com/embed/{video['id']}"
-                    title="{video['title']}" frameborder="0"
-                    allowfullscreen></iframe>
+                    title="{video['title']}"
+                    frameborder="0"
+                    allowfullscreen
+                    loading="lazy">
+                </iframe>
             </div>
-            <p class="text-gray-600 dark:text-gray-300">{video['title']}</p>
+            <p class="text-gray-600 dark:text-gray-300 text-sm font-medium line-clamp-2">{video['title']}</p>
         </div>
         """
+    html += "</div>"
     return html.strip()
 
 
