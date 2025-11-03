@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Drone </title>
+    <link rel="icon" href="me.jpg" type="image/png" sizes="32x32">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script async src="//www.instagram.com/embed.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <style>
+        .theme-transition {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        .video-container iframe,
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+        }
+        .media-card {
+            transition: transform 0.3s ease;
+        }
+        .media-card:hover {
+            transform: translateY(-5px);
+        }
+        
+    </style>
+</head>
+<body class="theme-transition bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
+    <!-- Theme Toggle -->
+    <button id="themeToggle" class="fixed top-2 right-4 z-10 p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg">
+        <i data-feather="moon" class="hidden dark:block"></i>
+        <i data-feather="sun" class="block dark:hidden"></i>
+    </button>
+
+	<nav class="fixed top-0 left-0 right-20 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-sm">
+		<div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">Kathan Master</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Home</a>
+                    <a href="projects.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
+                    <!-- <a href="blog.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Blog</a> -->
+                    <a href="media.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Media</a>
+                    <a href="contact.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="md:hidden focus:outline-none">
+                    <i data-feather="menu"></i>
+                </button>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="max-h-0 overflow-hidden flex-col space-y-4 px-6 pb-0 md:hidden transition-[max-height] duration-500 ease-in-out">
+                <a href="index.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Home</a><br>
+                <a href="projects.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Projects</a><br>
+                <!-- <a href="blog.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Blog</a><br> -->
+                <a href="media.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Media</a><br>
+                <a href="contact.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Contact</a><br>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Media Section -->
+    <section class="min-h-screen pt-24 pb-16">
+    <div class="container mx-auto px-6">
+    <h1 data-lucide="drone" class="text-4xl font-bold text-center mb-16" data-aos="fade-down">Drone Part Selection</h1>
+
+    <!-- YouTube Section -->
+    <div class="media-card bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 flex flex-col items-center" data-aos="fade-up">
+    <!-- YouTube header -->
+    <div class="flex items-center justify-center mb-6">
+        <i data-feather="" class="text-red-600 text-3xl mr-3"></i>
+        <h2 class="text-3xl font-semibold text-center"></h2>
+    </div>
+
+    <!-- YOUTUBE_SECTION_START -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-10 justify-items-center">
+        <!-- Video 1 -->
+        <div class="bg-gray-50 dark:bg-gray-900 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 w-full max-w-sm" data-aos="zoom-in">
+        <div class="video-container">
+            <iframe class="w-full h-48 rounded-t-xl"
+            src="https://www.youtube.com/embed/4IYPuRq9VvU"
+            title="You Visited Flower Show in Ahmedabad"
+            frameborder="0"
+            allowfullscreen loading="lazy">
+            </iframe>
+        </div>
+        <div class="p-4">
+            <p class="text-gray-700 dark:text-gray-300 text-sm font-medium text-center">You Visited Flower Show in Ahmedabad</p>
+        </div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="bg-gray-50 dark:bg-gray-900 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 w-full max-w-sm" data-aos="zoom-in">
+        <div class="video-container">
+            <iframe class="w-full h-48 rounded-t-xl"
+            src="https://www.youtube.com/embed/amWtBvwu1eI"
+            title="GOA DIARIES"
+            frameborder="0"
+            allowfullscreen loading="lazy">
+            </iframe>
+        </div>
+        <div class="p-4">
+            <p class="text-gray-700 dark:text-gray-300 text-sm font-medium text-center">GOA DIARIES</p>
+        </div>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="bg-gray-50 dark:bg-gray-900 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 w-full max-w-sm" data-aos="zoom-in">
+        <div class="video-container">
+            <iframe class="w-full h-48 rounded-t-xl"
+            src="https://www.youtube.com/embed/a55oTDIg9Mg"
+            title="Trip To Andaman & Nicobar ❤️"
+            frameborder="0"
+            allowfullscreen loading="lazy">
+            </iframe>
+        </div>
+        <div class="p-4">
+            <p class="text-gray-700 dark:text-gray-300 text-sm font-medium text-center">Trip To Andaman & Nicobar ❤️</p>
+        </div>
+        </div>
+
+        <!-- Video 4 -->
+        <div class="bg-gray-50 dark:bg-gray-900 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 w-full max-w-sm" data-aos="zoom-in">
+        <div class="video-container">
+            <iframe class="w-full h-48 rounded-t-xl"
+            src="https://www.youtube.com/embed/15HIfLFqFLg"
+            title="JAI GIRNARI"
+            frameborder="0"
+            allowfullscreen loading="lazy">
+            </iframe>
+        </div>
+        <div class="p-4">
+            <p class="text-gray-700 dark:text-gray-300 text-sm font-medium text-center">JAI GIRNARI</p>
+        </div>
+        </div>
+
+        <!-- Video 5 -->
+        <div class="bg-gray-50 dark:bg-gray-900 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 w-full max-w-sm" data-aos="zoom-in">
+        <div class="video-container">
+            <iframe class="w-full h-48 rounded-t-xl"
+            src="https://www.youtube.com/embed/w3dt1797J6w"
+            title="Dakor"
+            frameborder="0"
+            allowfullscreen loading="lazy">
+            </iframe>
+        </div>
+        <div class="p-4">
+            <p class="text-gray-700 dark:text-gray-300 text-sm font-medium text-center">Dakor</p>
+        </div>
+        </div>
+
+        <!-- Video 6 -->
+        <div class="bg-gray-50 dark:bg-gray-900 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 w-full max-w-sm" data-aos="zoom-in">
+        <div class="video-container">
+            <iframe class="w-full h-48 rounded-t-xl"
+            src="https://www.youtube.com/embed/Gk_pLSoOGds"
+            title="TRAVEL WITH FRIENDS || NEW DELHI📍|| TINKERTHON"
+            frameborder="0"
+            allowfullscreen loading="lazy">
+            </iframe>
+        </div>
+        <div class="p-4">
+            <p class="text-gray-700 dark:text-gray-300 text-sm font-medium text-center">TRAVEL WITH FRIENDS || NEW DELHI📍|| TINKERTHON</p>
+        </div>
+        </div>
+    </div>
+    <!-- YOUTUBE_SECTION_END -->
+
+    <!-- Visit Channel Button -->
+    <div class="text-center mt-10">
+        <a href="https://youtube.com/@kathanmaster" target="_blank"
+        class="inline-flex items-center px-5 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
+        <i data-feather="youtube" class="mr-2"></i> Visit My YouTube Channel
+        </a>
+    </div>
+    </div>
+    <!-- YOUTUBE_SECTION_END -->
+    <br>
+    <!-- Instagram Reels Section -->
+    <div class="media-card bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 flex flex-col" data-aos="fade-up">
+      <div class="flex items-center justify-center mb-6">
+        <i data-feather="instagram" class="text-pink-600 text-2xl mr-3"></i>
+        <h2 class="text-3xl font-semibold text-center">Latest Instagram Reels</h2>
+      </div>
+
+      <div style="display: flex; gap: 4%; justify-content: center; flex-wrap: wrap;">
+        <div class="ig-video-wrapper" style="overflow:hidden; border-radius:12px; width:48%;">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DOOKQdCAcGb/"
+            data-instgrm-version="14" style="width:100%; margin:0; border:0; padding:0;"></blockquote>
+        </div>
+        <div class="ig-video-wrapper" style="overflow:hidden; border-radius:12px; width:48%;">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DP1ftxrgSu2/"
+            data-instgrm-version="14" style="width:100%; margin:0; border:0; padding:0;"></blockquote>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-4 mt-6">
+        <p class="text-gray-600 dark:text-gray-300 mb-4 flex-1 text-justify">
+          Short, engaging content about my college life as a student — enjoying the journey, learning new things, studying late at night before exams, and building a beautiful group of friends who support and encourage me.
+        </p>
+        <p class="text-gray-600 dark:text-gray-300 mb-4 flex-1 text-justify">
+          Finally Completed this trend with Friends 🧡
+        </p>
+      </div>
+        <div class="text-center mt-10">
+      <a href="https://instagram.com/_master_kathan_" target="_blank"
+        class="inline-flex items-center px-5 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-colors mt-auto">
+        <i data-feather="instagram" class="mr-2"></i> Visit My Instagram Profile
+      </a>
+    </div>
+    </div>
+  </div>
+</section>
+
+    <footer class="bg-gray-200 dark:bg-gray-800 p-6">
+    <!-- Container -->
+    <div class="flex flex-col md:flex-row justify-center items-center md:space-x-20 text-center md:text-left">
+        
+        <!-- Navigation links -->
+        <nav class="flex flex-col space-y-3">
+            <p class="font-medium text-gray-700 dark:text-gray-300"><strong> About Me</strong></p>
+            <a href="index.html" class="hover:underline">Home</a>
+            <a href="projects.html" class="hover:underline">My Projects</a>
+            <!-- <a href="blog.html" class="hover:underline">Blog</a> -->
+            <a href="media.html" class="hover:underline">Media</a>
+            <a href="contact.html" class="hover:underline">Contact</a>
+        </nav>
+            <br>
+        <!-- Social links -->
+        <div class="flex flex-col space-y-3 mb-6 md:mb-0">
+            <p class="font-medium text-gray-700 dark:text-gray-300"><strong>Follow Me On</strong></p>
+            <a href="https://github.com/Kathan-Master" target="_blank" class="hover:underline">GitHub</a>
+                <a href="https://www.youtube.com/@kathanmaster" target="_blank" class="hover:underline">YouTube</a>
+                <a href="https://www.instagram.com/_master_kathan_" target="_blank" class="hover:underline">Instagram</a>
+                <a href="https://www.linkedin.com/in/kathan-master" target="_blank" class="hover:underline">LinkedIn</a>
+        </div>
+    </div>
+    <br class="bg-gray-200 dark:bg-gray-800 p-6">
+    <!-- Copyright -->
+    <p class="text-gray-700 dark:text-gray-300 mt-6 text-center">
+        &copy; 2025 Kathan Master. All rights reserved. | Design by Kathan Master.
+    </p>
+</footer>
+    <script>
+        // Theme management
+        const themeToggle = document.getElementById('themeToggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+            document.documentElement.classList.add('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', () => {
+        feather.replace(); // Initialize feather icons
+        lu
+
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+        if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+            // Close menu
+            menu.style.maxHeight = '0';
+        } else {
+            // Open menu (set to scrollHeight for smooth slide)
+            menu.style.maxHeight = menu.scrollHeight + "px";
+        }
+        });
+    });
+            document.addEventListener('DOMContentLoaded', () => {
+                lucide.createIcons();
+        });
+        // Initialize animations and icons
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            feather.replace();
+        });
+
+        window.addEventListener('load', () => {
+        if (window.instgrm) instgrm.Embeds.process();
+    });
+    </script>
+</body>
+</html>
+
+
+
