@@ -1,9 +1,10 @@
+so this my home page code:
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Drone </title>
+    <title>KATHAN MASTER | Home</title>
     <link rel="icon" href="me.jpg" type="image/png" sizes="32x32">
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,8 +12,11 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
+    <!-- Development version -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Production version -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script async src="//www.instagram.com/embed.js"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -22,28 +26,17 @@
         .theme-transition {
             transition: background-color 0.3s ease, color 0.3s ease;
         }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border: 4px solid #3B82F6;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
         }
-        .video-container iframe,
-        .video-container video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 12px;
+        .dark .profile-img {
+            border-color: #60A5FA;
+            box-shadow: 0 10px 25px rgba(96, 165, 250, 0.3);
         }
-        .media-card {
-            transition: transform 0.3s ease;
-        }
-        .media-card:hover {
-            transform: translateY(-5px);
-        }
-        
     </style>
 </head>
 <body class="theme-transition bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
@@ -53,14 +46,15 @@
         <i data-feather="sun" class="block dark:hidden"></i>
     </button>
 
-	<nav class="fixed top-0 left-0 right-20 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-sm">
-		<div class="container mx-auto px-6 py-4">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-20 z-40 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">Kathan Master</a>
                 <div class="hidden md:flex space-x-8">
                     <a href="index.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Home</a>
                     <a href="projects.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
-                    <!-- <a href="blog.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Blog</a> -->
+                    <a href="blog.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Blog</a>
                     <a href="media.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Media</a>
                     <a href="contact.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
                 </div>
@@ -72,198 +66,332 @@
 
                 <!-- Mobile Menu -->
                 <div id="mobile-menu" class="max-h-0 overflow-hidden flex-col space-y-4 px-6 pb-0 md:hidden transition-[max-height] duration-500 ease-in-out">
-                <a href="index.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Home</a><br>
-                <a href="projects.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Projects</a><br>
-                <!-- <a href="blog.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Blog</a><br> -->
-                <a href="media.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Media</a><br>
-                <a href="contact.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Contact</a><br>
+                    <a href="index.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Home</a><br>
+                    <a href="projects.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Projects</a><br>
+                    <a href="blog.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Blog</a><br>
+                    <a href="media.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Media</a><br>
+                    <a href="contact.html" class="font-medium text-xl hover:text-blue-600 dark:hover:text-blue-400">Contact</a><br>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Media Section -->
-    <section class="min-h-screen pt-24 pb-16">
-    <div class="container mx-auto px-6">
-    <h1 data-lucide="drone" class="text-4xl font-bold text-center mb-16" data-aos="fade-down">Drone Part Selection</h1>
-
-    <!-- YouTube Section -->
-    <div class="media-card bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 flex flex-col items-center" data-aos="fade-up">
-    <!-- YouTube header -->
-    <div class="flex items-center justify-center mb-6">
-        <i data-feather="" class="text-red-600 text-3xl mr-3"></i>
-        <h2 class="text-3xl font-semibold text-center"></h2>
-    </div>
-
-    <!-- YOUTUBE_SECTION_START -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-10 justify-items-center">
-        <!-- Video 1 -->
-        <div class="bg-gray-50 dark:bg-gray-900 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 w-full max-w-sm" data-aos="zoom-in">
-        <div class="video-container">
-            <iframe class="w-full h-48 rounded-t-xl"
-            src="https://www.youtube.com/embed/4IYPuRq9VvU"
-            title="You Visited Flower Show in Ahmedabad"
-            frameborder="0"
-            allowfullscreen loading="lazy">
-            </iframe>
-        </div>
-        <div class="p-4">
-            <p class="text-gray-700 dark:text-gray-300 text-sm font-medium text-center">You Visited Flower Show in Ahmedabad</p>
-        </div>
-        </div>
-
-        <!-- Video 2 -->
-        <div class="bg-gray-50 dark:bg-gray-900 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 w-full max-w-sm" data-aos="zoom-in">
-        <div class="video-container">
-            <iframe class="w-full h-48 rounded-t-xl"
-            src="https://www.youtube.com/embed/amWtBvwu1eI"
-            title="GOA DIARIES"
-            frameborder="0"
-            allowfullscreen loading="lazy">
-            </iframe>
-        </div>
-        <div class="p-4">
-            <p class="text-gray-700 dark:text-gray-300 text-sm font-medium text-center">GOA DIARIES</p>
-        </div>
-        </div>
-
-        <!-- Video 3 -->
-        <div class="bg-gray-50 dark:bg-gray-900 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 w-full max-w-sm" data-aos="zoom-in">
-        <div class="video-container">
-            <iframe class="w-full h-48 rounded-t-xl"
-            src="https://www.youtube.com/embed/a55oTDIg9Mg"
-            title="Trip To Andaman & Nicobar ❤️"
-            frameborder="0"
-            allowfullscreen loading="lazy">
-            </iframe>
-        </div>
-        <div class="p-4">
-            <p class="text-gray-700 dark:text-gray-300 text-sm font-medium text-center">Trip To Andaman & Nicobar ❤️</p>
-        </div>
-        </div>
-
-        <!-- Video 4 -->
-        <div class="bg-gray-50 dark:bg-gray-900 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 w-full max-w-sm" data-aos="zoom-in">
-        <div class="video-container">
-            <iframe class="w-full h-48 rounded-t-xl"
-            src="https://www.youtube.com/embed/15HIfLFqFLg"
-            title="JAI GIRNARI"
-            frameborder="0"
-            allowfullscreen loading="lazy">
-            </iframe>
-        </div>
-        <div class="p-4">
-            <p class="text-gray-700 dark:text-gray-300 text-sm font-medium text-center">JAI GIRNARI</p>
-        </div>
-        </div>
-
-        <!-- Video 5 -->
-        <div class="bg-gray-50 dark:bg-gray-900 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 w-full max-w-sm" data-aos="zoom-in">
-        <div class="video-container">
-            <iframe class="w-full h-48 rounded-t-xl"
-            src="https://www.youtube.com/embed/w3dt1797J6w"
-            title="Dakor"
-            frameborder="0"
-            allowfullscreen loading="lazy">
-            </iframe>
-        </div>
-        <div class="p-4">
-            <p class="text-gray-700 dark:text-gray-300 text-sm font-medium text-center">Dakor</p>
-        </div>
-        </div>
-
-        <!-- Video 6 -->
-        <div class="bg-gray-50 dark:bg-gray-900 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 w-full max-w-sm" data-aos="zoom-in">
-        <div class="video-container">
-            <iframe class="w-full h-48 rounded-t-xl"
-            src="https://www.youtube.com/embed/Gk_pLSoOGds"
-            title="TRAVEL WITH FRIENDS || NEW DELHI📍|| TINKERTHON"
-            frameborder="0"
-            allowfullscreen loading="lazy">
-            </iframe>
-        </div>
-        <div class="p-4">
-            <p class="text-gray-700 dark:text-gray-300 text-sm font-medium text-center">TRAVEL WITH FRIENDS || NEW DELHI📍|| TINKERTHON</p>
-        </div>
-        </div>
-    </div>
-    <!-- YOUTUBE_SECTION_END -->
-
-    <!-- Visit Channel Button -->
-    <div class="text-center mt-10">
-        <a href="https://youtube.com/@kathanmaster" target="_blank"
-        class="inline-flex items-center px-5 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
-        <i data-feather="youtube" class="mr-2"></i> Visit My YouTube Channel
-        </a>
-    </div>
-    </div>
-    <!-- YOUTUBE_SECTION_END -->
-    <br>
-    <!-- Instagram Reels Section -->
-    <div class="media-card bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 flex flex-col" data-aos="fade-up">
-      <div class="flex items-center justify-center mb-6">
-        <i data-feather="instagram" class="text-pink-600 text-2xl mr-3"></i>
-        <h2 class="text-3xl font-semibold text-center">Latest Instagram Reels</h2>
+    <main>
+        <!-- BEGIN: Drone Basics — Beginner Step-by-Step Guide -->
+<section id="drone-basics" class="py-12 bg-white dark:bg-gray-900/60 border-t border-gray-200 dark:border-gray-700">
+  <div class="container mx-auto px-6">
+    
+    <!-- HEADER -->
+    <header class="mb-6">
+      <div class="flex items-center mb-2">
+        <i data-lucide="drone" class="mr-2 text-blue-600 dark:text-blue-400"></i>
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
+          Drone Basics — Build One Step-by-Step
+        </h2>
       </div>
+      <p class="text-gray-600 dark:text-gray-300 mt-1">
+        A practical, beginner-friendly walkthrough: what each part does, simple selection rules,
+        assembly flow, and safety checklist.
+      </p>
+    </header>
 
-      <div style="display: flex; gap: 4%; justify-content: center; flex-wrap: wrap;">
-        <div class="ig-video-wrapper" style="overflow:hidden; border-radius:12px; width:48%;">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DOOKQdCAcGb/"
-            data-instgrm-version="14" style="width:100%; margin:0; border:0; padding:0;"></blockquote>
-        </div>
-        <div class="ig-video-wrapper" style="overflow:hidden; border-radius:12px; width:48%;">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DP1ftxrgSu2/"
-            data-instgrm-version="14" style="width:100%; margin:0; border:0; padding:0;"></blockquote>
-        </div>
-      </div>
+    <!-- Quick Navigation -->
+    <nav class="flex flex-wrap gap-3 mb-6 text-sm">
+      <button class="px-3 py-1 bg-blue-600 text-white rounded" data-scroll="#what-is">About</button>
+      <a href="#parts" class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded">Parts</a>
+      <!-- <a href="#assembly" class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded">Assembly</a> -->
+      <a href="#preflight" class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded">Pre-flight</a>
+    </nav>
 
-      <div class="flex flex-wrap gap-4 mt-6">
-        <p class="text-gray-600 dark:text-gray-300 mb-4 flex-1 text-justify">
-          Short, engaging content about my college life as a student — enjoying the journey, learning new things, studying late at night before exams, and building a beautiful group of friends who support and encourage me.
+    <!-- WHAT IS A DRONE -->
+    <section id="what-is" class="mb-6 p-5 rounded-lg bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700">
+      <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-100">What is a Drone?</h3>
+      <p class="mt-2 text-gray-700 dark:text-gray-300 text-justify">
+        A drone, in a technological context, is an unmanned aircraft. Drones are more formally known
+        as unmanned aerial vehicles (UAVs) or unmanned aircraft systems (UASes). Essentially, a drone
+        is a flying robot. The aircraft may be remotely controlled or can fly autonomously through
+        software-controlled flight plans in their embedded systems working in conjunction with onboard
+        sensors and GPS.
+      </p>
+
+      <h3 class="mt-6 font-semibold text-lg text-gray-800 dark:text-gray-100">History of Drones</h3>
+      <p class="mt-2 text-gray-700 dark:text-gray-300 text-justify">
+        In the recent past, UAVs were most often associated with the military, where they were used
+        initially for anti-aircraft target practice, intelligence gathering and then, more
+        controversially, as weapons platforms. Drones are now also used in a wide range of civilian
+        roles ranging from search and rescue, surveillance, traffic monitoring, weather monitoring and
+        firefighting to personal drones and business drone-based photography, as well as videography,
+        agriculture and even delivery services. Origin of a drone can be traced with special techniques
+        to provide relevant information to the military. The very first aircraft with reusable type
+        radio control mechanism was designed in the 30s and it worked like a base model for all new
+        advancements of today’s world.
+      </p>
+      <p class="mt-2 text-gray-700 dark:text-gray-300 text-justify">
+        Later, the military drones were developed with classic sensors and camera units and now they
+        have been fixed inside missiles too. With so much advancement in technology, now you can easily
+        find so many variants of drones. Few are used for military applications but others are finding
+        the potential role in many big companies. Drones in today’s world have also been an important
+        part of the film industry and news reporters are also using them to carry information from
+        inaccessible locations. A typical unmanned aircraft is made of light composite materials to
+        reduce weight and increase maneuverability. This composite material strength allows military
+        drones to cruise at extremely high altitudes.
+      </p>
+      <p class="mt-2 text-gray-700 dark:text-gray-300 text-justify">
+        UAV drones are equipped with different state-of-the-art technology such as infrared cameras,
+        GPS and laser (consumer, commercial and military UAV). Drones are controlled by remote ground
+        control systems (GSC) and also referred to as a ground cockpit. An unmanned aerial vehicle
+        system has two parts — the drone itself and the control system. The nose of the unmanned aerial
+        vehicle is where all the sensors and navigational systems are present. The rest of the body is
+        full of drone technology systems since there is no space required to accommodate humans. The
+        engineering materials used to build the drone are highly complex composites designed to absorb
+        vibration, which decrease the sound produced. These materials are very lightweight.
+      </p>
+
+      <h3 class="mt-6 font-semibold text-lg text-gray-800 dark:text-gray-100">Types of Drones</h3>
+      <p class="mt-2 text-gray-700 dark:text-gray-300 text-justify">
+        Quadcopters are known by different names, including: quadrotor, quadcopter, tricopter, hexacopter,
+        and octocopter. A quadcopter is a multirotor copter that is lifted and propelled by four rotors.
+        Each arm has a motor and a propeller at its end. Lift is generated by the set of vertically
+        oriented rotors, so quadcopters are classified as rotorcraft.
+      </p>
+
+      <h3 class="mt-6 font-semibold text-lg text-gray-800 dark:text-gray-100">Basic Parts of a Drone</h3>
+      <ul class="list-disc list-inside mt-2 text-gray-700 dark:text-gray-300">
+        <li><strong>Frame:</strong> Structure that holds everything together.</li>
+        <li><strong>Motors & Props:</strong> Create thrust and torque to move and rotate the craft.</li>
+        <li><strong>ESCs (Electronic Speed Controllers):</strong> Drive the motors and accept signals from the flight controller.</li>
+        <li><strong>Battery:</strong> LiPo battery provides power (3S to 4S common for hobby builds).</li>
+        <li><strong>Flight Controller (FC):</strong> Brain of the drone: reads sensors, runs stabilization and controls ESCs.</li>
+        <li><strong>Receiver (RX) & Transmitter (TX):</strong> Remote-control link between pilot and drone.</li>
+      </ul>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main class="mb-6 p-5 rounded-lg bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700" id="parts">
+      <!-- MOTOR -->
+      <section class="mt-4">
+        <h4 class="font-semibold text-gray-900 dark:text-gray-100 flex items-center">
+          <i data-lucide="rotate-ccw" class="mr-2 text-blue-600 dark:text-blue-400"></i>
+          Motors — Speed vs Torque (kV & Stator Size)
+        </h4>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">
+          Motors are rated by <strong>stator size</strong> (e.g., 2204, 2306) and <strong>kV</strong> (RPM per volt).
+          These determine how fast your props spin and how much load they can handle.
         </p>
-        <p class="text-gray-600 dark:text-gray-300 mb-4 flex-1 text-justify">
-          Finally Completed this trend with Friends 🧡
+        <ul class="grid sm:grid-cols-2 gap-2 mt-3 text-gray-700 dark:text-gray-300">
+          <li class="flex items-start"><i data-lucide="arrow-up" class="mr-2 mt-1 text-blue-600 dark:text-blue-400"></i>
+            <span><strong>High kV:</strong> Faster RPM — great for small propellers and racing drones.</span>
+          </li>
+          <li class="flex items-start"><i data-lucide="arrow-down" class="mr-2 mt-1 text-blue-600 dark:text-blue-400"></i>
+            <span><strong>Low kV:</strong> More torque — ideal for larger props and stable aerial drones.</span>
+          </li>
+        </ul>
+        <ul class="list-disc list-inside mt-3 space-y-1">
+          <li>Match stator size to propeller: small stators for 3″–4″ props, large stators for 5″ and above.</li>
+          <li>Choose kV based on battery cells — higher voltage → lower kV.</li>
+          <li>Always check motor thrust data (amp draw, thrust, prop compatibility).</li>
+        </ul>
+      </section>
+
+      <!-- ESC -->
+      <section class="mt-6">
+        <h4 class="font-semibold text-gray-900 dark:text-gray-100 flex items-center">
+          <i data-lucide="zap" class="mr-2 text-yellow-500"></i> ESC (Electronic Speed Controller)
+        </h4>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">
+          ESCs control motor speed. Each ESC must handle the motor’s maximum current plus a margin.
         </p>
+        <ul class="list-disc list-inside mt-2 space-y-1">
+          <li>Use <strong>30A–40A</strong> for 5″ drones, <strong>10A–20A</strong> for micro builds.</li>
+          <li><strong>BLHeli_32</strong> or <strong>BLHeli_S</strong> firmware is common.</li>
+          <li>Ensure ESC amperage ≥ motor’s peak current × 1.2.</li>
+          <li>Opt for 4-in-1 ESCs for compact builds.</li>
+        </ul>
+      </section>
+
+      <!-- PROPELLERS -->
+      <section class="mt-6">
+        <h4 class="font-semibold text-gray-900 dark:text-gray-100 flex items-center">
+          <i data-lucide="fan" class="mr-2 text-green-500"></i> Propellers — Size & Pitch
+        </h4>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">
+          Propellers generate lift. Diameter and pitch affect thrust and efficiency.
+        </p>
+        <ul class="grid sm:grid-cols-2 gap-2 mt-2 text-gray-700 dark:text-gray-300">
+          <li><strong>Smaller props (3"–4"):</strong> Agile, efficient, less thrust.</li>
+          <li><strong>Larger props (5"–8"):</strong> More lift, more power draw.</li>
+        </ul>
+      </section>
+
+      <!-- BATTERY -->
+      <section class="mt-6">
+        <h4 class="font-semibold text-gray-900 dark:text-gray-100 flex items-center">
+          <i data-lucide="battery-charging" class="mr-2 text-red-500"></i> Battery — Voltage & C Rating
+        </h4>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">
+          Choose voltage (S count) to match motor/ESC and C rating for current handling.
+        </p>
+        <ul class="list-disc list-inside mt-2 space-y-1 text-gray-700 dark:text-gray-300">
+          <li><strong>3S–4S (11.1–14.8V):</strong> Common for 5″ drones.</li>
+          <li><strong>1S–2S:</strong> Tiny indoor whoops and micros.</li>
+          <li>Capacity (mAh) defines flight time; C defines discharge rate.</li>
+          <li>Formula: <strong>Max current = (mAh × C) / 1000</strong></li>
+        </ul>
+      </section>
+
+      <!-- FLIGHT CONTROLLER -->
+      <section class="mt-6">
+        <h4 class="font-semibold text-gray-900 dark:text-gray-100 flex items-center">
+          <i data-lucide="cpu" class="mr-2 text-purple-500"></i> Flight Controller (FC)
+        </h4>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">
+          The FC is your drone’s brain — it stabilizes flight and connects all sensors.
+        </p>
+        <ul class="list-disc list-inside mt-2 space-y-1 text-gray-700 dark:text-gray-300">
+          <li><strong>KK2.1:</strong> Good for learning; simple but limited.</li>
+          <li><strong>APM 2.8:</strong> Reliable, supports GPS flight.</li>
+          <li><strong>Pixhawk:</strong> Advanced, supports autonomous missions.</li>
+          <li>Modern FCs use Betaflight, INAV, or Ardupilot firmware.</li>
+        </ul>
+      </section>
+
+      <!-- RADIO CONTROLLER -->
+      <section class="mt-6">
+        <h4 class="font-semibold text-gray-900 dark:text-gray-100 flex items-center">
+          <i data-lucide="radio" class="mr-2 text-orange-500"></i> Remote Controller — Range & Channels
+        </h4>
+        <p class="mt-2 text-gray-700 dark:text-gray-300">
+          Transmitters send your control signals to the drone receiver.
+        </p>
+        <ul class="list-disc list-inside mt-2 space-y-1 text-gray-700 dark:text-gray-300">
+          <li><strong>Basic 6-channel:</strong> Good for simple quadcopters.</li>
+          <li><strong>8+ channels:</strong> Allows gimbal and mode control.</li>
+          <li>Popular systems: FlySky, FrSky, Radiomaster, DJI FPV.</li>
+        </ul>
+      </section>
+
+      <!-- SAFETY -->
+      <section class="mt-6">
+        <h4 class="font-semibold text-gray-900 dark:text-gray-100 flex items-center">
+          <i data-lucide="shield" class="mr-2 text-blue-500"></i> Safety & Final Assembly
+        </h4>
+        <ul class="list-disc list-inside mt-2 space-y-1 text-gray-700 dark:text-gray-300">
+          <li>Always remove props while configuring.</li>
+          <li>Balance all motors and props to reduce vibration.</li>
+          <li>Secure wiring, test each ESC output before flight.</li>
+          <li>Do first flight in open area with safety goggles.</li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- RIGHT COLUMN / CHEAT-SHEET -->
+    <aside class="p-5 rounded-lg bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 mt-8">
+      <h4 class="font-semibold text-gray-800 dark:text-gray-100">Quick Compatibility Cheat-Sheet</h4>
+      <table class="w-full mt-3 text-sm text-gray-700 dark:text-gray-300">
+        <thead class="text-xs text-gray-600 dark:text-gray-400">
+          <tr>
+            <th>Type</th><th>Motors</th><th>Props</th><th>Battery</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-t"><td class="py-2">Indoor Micro</td><td>1103–1306</td><td>2.5″–3″</td><td>1S–2S</td></tr>
+          <tr class="border-t bg-gray-50 dark:bg-gray-900/60"><td class="py-2">Light 4″</td><td>1204–1408</td><td>3″–4″</td><td>3S</td></tr>
+          <tr class="border-t"><td class="py-2">5″ Freestyle</td><td>2204–2306</td><td>5″</td><td>4S</td></tr>
+          <tr class="border-t bg-gray-50 dark:bg-gray-900/60"><td class="py-2">Long Range</td><td>2812+</td><td>6″–9″</td><td>4S–6S</td></tr>
+        </tbody>
+      </table>
+
+      <div class="mt-4 text-sm text-gray-600 dark:text-gray-400 space-y-2">
+        <p><strong>ESC sizing:</strong> ESC amps ≥ motor peak × 1.2</p>
+        <p><strong>Battery sizing:</strong> (mAh × C) should exceed total amp draw</p>
+        <p><strong>Motor rule:</strong> kV × voltage ≈ desired RPM range</p>
       </div>
-        <div class="text-center mt-10">
-      <a href="https://instagram.com/_master_kathan_" target="_blank"
-        class="inline-flex items-center px-5 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-colors mt-auto">
-        <i data-feather="instagram" class="mr-2"></i> Visit My Instagram Profile
-      </a>
-    </div>
-    </div>
+    </aside>
   </div>
+
+  <!-- Pre-flight -->
+  <div id="preflight" class="mt-10 container mx-auto px-6 grid md:grid-cols-2 gap-6">
+  <!-- Pre-flight Checklist -->
+  <div class="p-5 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition">
+    <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-100 flex items-center">
+      <i data-lucide="check-circle" class="mr-2 text-green-600 dark:text-green-400"></i>
+      Pre-flight Checklist
+    </h3>
+    <ul class="list-disc list-inside mt-4 text-gray-700 dark:text-gray-300 space-y-2">
+      <li>Ensure all motors spin in the correct direction (adjust in software if needed).</li>
+      <li>Perform ESC calibration if required by your setup.</li>
+      <li>Check that propellers are <strong>balanced, oriented correctly,</strong> and securely tightened.</li>
+      <li>Verify battery is <strong>fully charged</strong> and mounted safely with straps or velcro.</li>
+      <li>Confirm the receiver is <strong>bound</strong> and failsafe is properly configured.</li>
+      <li>Wait for <strong>GPS lock</strong> and ensure home position is set (if using GPS/autopilot).</li>
+      <li>Perform a short, low-altitude hover test in an open and safe area.</li>
+    </ul>
+  </div>
+
+  <!-- Common Beginner Troubleshooting -->
+  <div class="p-6 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition">
+    <h3 class="font-semibold text-lg text-gray-800 dark:text-gray-100 flex items-center">
+      <i data-lucide="alert-triangle" class="mr-2 text-yellow-600 dark:text-yellow-400"></i>
+      Common Beginner Troubleshooting
+    </h3>
+    <ul class="list-disc list-inside mt-4 text-gray-700 dark:text-gray-300 space-y-2">
+      <li><strong>Motor not spinning:</strong> Check ESC power connections, signal wire, and motor leads.</li>
+      <li><strong>Excessive current draw:</strong> Verify correct prop size, and inspect for bent shafts or short circuits.</li>
+      <li><strong>Unstable flight:</strong> Recheck prop orientation, tighten frame bolts, and fine-tune PID values.</li>
+      <li><strong>No RC control:</strong> Ensure receiver is bound, powered, and channels map correctly in your flight software.</li>
+    </ul>
+  </div>
+
 </section>
 
-    <footer class="bg-gray-200 dark:bg-gray-800 p-6">
-    <!-- Container -->
-    <div class="flex flex-col md:flex-row justify-center items-center md:space-x-20 text-center md:text-left">
-        
-        <!-- Navigation links -->
-        <nav class="flex flex-col space-y-3">
-            <p class="font-medium text-gray-700 dark:text-gray-300"><strong> About Me</strong></p>
-            <a href="index.html" class="hover:underline">Home</a>
-            <a href="projects.html" class="hover:underline">My Projects</a>
-            <!-- <a href="blog.html" class="hover:underline">Blog</a> -->
-            <a href="media.html" class="hover:underline">Media</a>
-            <a href="contact.html" class="hover:underline">Contact</a>
-        </nav>
-            <br>
-        <!-- Social links -->
-        <div class="flex flex-col space-y-3 mb-6 md:mb-0">
-            <p class="font-medium text-gray-700 dark:text-gray-300"><strong>Follow Me On</strong></p>
-            <a href="https://github.com/Kathan-Master" target="_blank" class="hover:underline">GitHub</a>
-                <a href="https://www.youtube.com/@kathanmaster" target="_blank" class="hover:underline">YouTube</a>
-                <a href="https://www.instagram.com/_master_kathan_" target="_blank" class="hover:underline">Instagram</a>
-                <a href="https://www.linkedin.com/in/kathan-master" target="_blank" class="hover:underline">LinkedIn</a>
-        </div>
+
+</main>
+
+    <footer class="bg-gray-100 dark:bg-gray-900 border-t border-gray-300 dark:border-gray-700 py-10">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10 text-center md:text-left">
+
+    <!-- About / Branding -->
+    <div>
+      <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Kathan Master</h3>
+      <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+        Developer, innovator, and tech enthusiast.  
+        Sharing knowledge, projects, and creations that inspire others to build their own ideas.
+      </p>
     </div>
-    <br class="bg-gray-200 dark:bg-gray-800 p-6">
-    <!-- Copyright -->
-    <p class="text-gray-700 dark:text-gray-300 mt-6 text-center">
-        &copy; 2025 Kathan Master. All rights reserved. | Design by Kathan Master.
-    </p>
+
+    <!-- Quick Links -->
+    <div>
+      <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Explore</h4>
+      <ul class="space-y-2">
+        <li><a href="index.html" class="flex items-center justify-center md:justify-start text-gray-700 dark:text-gray-300 hover:text-blue-600 transition"><i data-lucide="home" class="w-4 h-4 mr-2"></i> Home</a></li>
+        <li><a href="projects.html" class="flex items-center justify-center md:justify-start text-gray-700 dark:text-gray-300 hover:text-blue-600 transition"><i data-lucide="code-2" class="w-4 h-4 mr-2"></i> Projects</a></li>
+        <li><a href="blog.html" class="flex items-center justify-center md:justify-start text-gray-700 dark:text-gray-300 hover:text-blue-600 transition"><i data-lucide="book-open" class="w-4 h-4 mr-2"></i> Blog</a></li>
+        <li><a href="media.html" class="flex items-center justify-center md:justify-start text-gray-700 dark:text-gray-300 hover:text-blue-600 transition"><i data-lucide="video" class="w-4 h-4 mr-2"></i> Media</a></li>
+        <li><a href="contact.html" class="flex items-center justify-center md:justify-start text-gray-700 dark:text-gray-300 hover:text-blue-600 transition"><i data-lucide="mail" class="w-4 h-4 mr-2"></i> Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Links -->
+    <div>
+      <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">Connect</h4>
+      <ul class="space-y-2">
+        <li><a href="https://github.com/Kathan-Master" target="_blank" class="flex items-center justify-center md:justify-start text-gray-700 dark:text-gray-300 hover:text-blue-600 transition"><i data-lucide="github" class="w-4 h-4 mr-2"></i> GitHub</a></li>
+        <li><a href="https://www.youtube.com/@kathanmaster" target="_blank" class="flex items-center justify-center md:justify-start text-gray-700 dark:text-gray-300 hover:text-blue-600 transition"><i data-lucide="youtube" class="w-4 h-4 mr-2"></i> YouTube</a></li>
+        <li><a href="https://www.instagram.com/_master_kathan_" target="_blank" class="flex items-center justify-center md:justify-start text-gray-700 dark:text-gray-300 hover:text-blue-600 transition"><i data-lucide="instagram" class="w-4 h-4 mr-2"></i> Instagram</a></li>
+        <li><a href="https://www.linkedin.com/in/kathan-master" target="_blank" class="flex items-center justify-center md:justify-start text-gray-700 dark:text-gray-300 hover:text-blue-600 transition"><i data-lucide="linkedin" class="w-4 h-4 mr-2"></i> LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <div class="border-t border-gray-300 dark:border-gray-700 mt-10"></div>
+
+  <!-- Bottom Note -->
+  <div class="text-center mt-4 text-sm text-gray-600 dark:text-gray-400">
+    © 2025 <span class="font-semibold text-gray-800 dark:text-gray-200">Kathan Master</span>. All rights reserved. | Design by Kathan Master.
+  </div>
 </footer>
+
     <script>
         // Theme management
         const themeToggle = document.getElementById('themeToggle');
@@ -278,11 +406,10 @@
             document.documentElement.classList.toggle('dark');
             localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
         });
-
+        
         // Mobile menu toggle
         document.addEventListener('DOMContentLoaded', () => {
         feather.replace(); // Initialize feather icons
-        lu
 
         const btn = document.getElementById('menu-btn');
         const menu = document.getElementById('mobile-menu');
@@ -297,9 +424,6 @@
         }
         });
     });
-            document.addEventListener('DOMContentLoaded', () => {
-                lucide.createIcons();
-        });
         // Initialize animations and icons
         document.addEventListener('DOMContentLoaded', function() {
             AOS.init({
@@ -309,13 +433,43 @@
             });
             feather.replace();
         });
-
-        window.addEventListener('load', () => {
-        if (window.instgrm) instgrm.Embeds.process();
+        document.addEventListener('DOMContentLoaded', () => {
+        lucide.createIcons();
+  });
+    
+    
+    // Smooth scroll to sections from quick nav
+document.querySelectorAll('[data-scroll]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+        const selector = btn.getAttribute('data-scroll');
+        const target = document.querySelector(selector);
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     });
-    </script>
+});
+
+// Copy entire guide text
+const copyBtn = document.getElementById('copy-guide');
+if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+        const texts = Array.from(
+            document.querySelectorAll('#drone-basics h2, #drone-basics h3, #drone-basics h4, #drone-basics p, #drone-basics li')
+        )
+            .map((n) => n.innerText.trim())
+            .filter(Boolean)
+            .join('\n');
+
+        navigator.clipboard.writeText(texts)
+            .then(() => {
+                const oldText = copyBtn.innerText;
+                copyBtn.innerText = 'Copied ✓';
+                setTimeout(() => (copyBtn.innerText = oldText), 1200);
+            })
+            .catch(() => alert('Copy failed — please select text manually.'));
+    });
+}
+    </script> 
+    <!-- END: Drone Basics -->
 </body>
 </html>
-
-
-
