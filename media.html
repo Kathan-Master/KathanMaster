@@ -43,29 +43,40 @@
         .media-card:hover {
             transform: translateY(-5px);
         }
-        .youtube-scroll-wrapper {
-		  overflow: hidden;
+        /* ===== YouTube Horizontal Loop Carousel ===== */
+		.yt-scroll-wrapper {
 		  width: 100%;
+		  overflow: hidden;
 		  position: relative;
 		}
 		
-		.youtube-scroll-track {
-		  display: flex;
+		.yt-scroll-track {
+		  display: grid;
+		  grid-auto-flow: column;
+		  grid-template-rows: repeat(2, 1fr); /* 2 rows */
 		  gap: 2rem;
-		  animation: scroll-x 40s linear infinite;
+		  animation: yt-scroll 45s linear infinite;
 		}
 		
-		.youtube-scroll-wrapper:hover .youtube-scroll-track {
+		/* Pause animation on hover */
+		.yt-scroll-wrapper:hover .yt-scroll-track {
 		  animation-play-state: paused;
 		}
 		
-		/* 6 videos visible at once */
+		/* Bigger cards */
 		.youtube-card {
-		  flex: 0 0 calc(100% / 6);
-		  max-width: calc(100% / 6);
+		  width: 360px; /* controls size */
 		}
 		
-		@keyframes scroll-x {
+		.yt-title {
+		  margin-top: 0.5rem;
+		  font-size: 0.9rem;
+		  text-align: center;
+		  color: #d1d5db;
+		}
+		
+		/* Smooth infinite loop */
+		@keyframes yt-scroll {
 		  from {
 		    transform: translateX(0);
 		  }
@@ -73,6 +84,7 @@
 		    transform: translateX(-50%);
 		  }
 		}
+
 
     </style>
 </head>
