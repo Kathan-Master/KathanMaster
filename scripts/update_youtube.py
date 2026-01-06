@@ -4,39 +4,70 @@ import re
 
 API_KEY = os.environ["YOUTUBE_API_KEY"]
 HTML_FILE = "media.html"
-MAX_VIDEOS = 50
+MAX_VIDEOS = 30   # fetch more so loop looks smooth
 
 
 def fetch_latest_videos():
     CHANNEL_HANDLE = "@kathanmaster"
 
+    # 1. Get uploads playlist
     channel_url = (
         "https://www.googleapis.com/youtube/v3/channels"
         f"?part=contentDetails&forHandle={CHANNEL_HANDLE}&key={API_KEY}"
     )
 
-    data = requests.get(channel_url).json()
-
-    if not data.get("items"):
+    channel_data = requests.get(channel_url).json()
+    if not channel_data.get("items"):
         raise RuntimeError("Channel not found or API error")
 
-    uploads_id = data["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
+    uploads_id = channel_data["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
 
+    # 2. Fetch uploads
     playlist_url = (
         "https://www.googleapis.com/youtube/v3/playlistItems"
-        f"?part=snippet&playlistId={uploads_id}&maxResults={MAX_VIDEOS}&key={API_KEY}"
+        f"?part=snippet&playlistId={uploads_id}&maxResults=50&key={API_KEY}"
     )
 
     playlist_data = requests.get(playlist_url).json()
 
-    videos = []
-    for item in playlist_data.get("items", []):
-        videos.append((
-            item["snippet"]["resourceId"]["videoId"],
-            item["snippet"]["title"]
-        ))
+    video_ids = [
+        item["snippet"]["resourceId"]["videoId"]
+        for item in playlist_data.get("items", [])
+    ]
 
-    return videos
+    # 3. Fetch durations
+    videos_url = (
+        "https://www.googleapis.com/youtube/v3/videos"
+        f"?part=contentDetails&id={','.join(video_ids)}&key={API_KEY}"
+    )
+
+    duration_data = requests.get(videos_url).json()
+    duration_map = {
+        item["id"]: item["contentDetails"]["duration"]
+        for item in duration_data.get("items", [])
+    }
+
+    # 4. Mix long videos + shorts
+    longs, shorts = [], []
+
+    for item in playlist_data.get("items", []):
+        vid = item["snippet"]["resourceId"]["videoId"]
+        title = item["snippet"]["title"]
+        duration = duration_map.get(vid, "")
+
+        if "M" in duration:
+            longs.append((vid, title))
+        else:
+            shorts.append((vid, title))
+
+    mixed = []
+    while longs or shorts:
+        if longs:
+            mixed.append(longs.pop(0))
+        if shorts:
+            mixed.append(shorts.pop(0))
+
+    return mixed[:MAX_VIDEOS]
 
 
 def generate_html(videos):
@@ -46,20 +77,22 @@ def generate_html(videos):
         cards += f"""
         <div class="youtube-card">
           <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/{vid}" loading="lazy" allowfullscreen></iframe>
+            <iframe
+              src="https://www.youtube.com/embed/{vid}"
+              loading="lazy"
+              allowfullscreen>
+            </iframe>
           </div>
-          <div class="p-4 text-center text-sm font-medium text-gray-700 dark:text-gray-300">
-            {title}
-          </div>
+          <p class="yt-title">{title}</p>
         </div>
         """
 
-    # 🔁 Duplicate cards for infinite scrolling
+    # 🔁 duplicate for infinite loop
     cards = cards + cards
 
     return f"""
-    <div class="youtube-scroll-wrapper">
-      <div class="youtube-scroll-track">
+    <div class="yt-scroll-wrapper">
+      <div class="yt-scroll-track">
         {cards}
       </div>
     </div>
