@@ -43,7 +43,37 @@
         .media-card:hover {
             transform: translateY(-5px);
         }
-        
+        .youtube-scroll-wrapper {
+		  overflow: hidden;
+		  width: 100%;
+		  position: relative;
+		}
+		
+		.youtube-scroll-track {
+		  display: flex;
+		  gap: 2rem;
+		  animation: scroll-x 40s linear infinite;
+		}
+		
+		.youtube-scroll-wrapper:hover .youtube-scroll-track {
+		  animation-play-state: paused;
+		}
+		
+		/* 6 videos visible at once */
+		.youtube-card {
+		  flex: 0 0 calc(100% / 6);
+		  max-width: calc(100% / 6);
+		}
+		
+		@keyframes scroll-x {
+		  from {
+		    transform: translateX(0);
+		  }
+		  to {
+		    transform: translateX(-50%);
+		  }
+		}
+
     </style>
 </head>
 <body class="theme-transition bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
