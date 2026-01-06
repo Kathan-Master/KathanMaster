@@ -9,22 +9,18 @@ MAX_VIDEOS = 6
 
 
 def fetch_latest_videos():
+    CHANNEL_HANDLE = "@kathanmaster"
+
     channel_url = (
         "https://www.googleapis.com/youtube/v3/channels"
-        f"?part=contentDetails&id={CHANNEL_ID}&key={API_KEY}"
+        f"?part=contentDetails&forHandle={CHANNEL_HANDLE}&key={API_KEY}"
     )
 
-    response = requests.get(channel_url)
-    data = response.json()
-
-    # 🔴 DEBUG OUTPUT (VERY IMPORTANT)
+    data = requests.get(channel_url).json()
     print("CHANNEL API RESPONSE:", data)
 
-    # ❌ If API failed, stop gracefully
-    if "items" not in data:
-        raise RuntimeError(
-            "YouTube API error. Check API key, API enablement, or quota."
-        )
+    if not data.get("items"):
+        raise RuntimeError("Channel not found. Check handle or API status.")
 
     uploads_id = data["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
 
@@ -44,6 +40,7 @@ def fetch_latest_videos():
         ))
 
     return videos
+
 
 
 def generate_html(videos):
