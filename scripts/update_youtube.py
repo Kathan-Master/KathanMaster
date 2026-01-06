@@ -3,9 +3,8 @@ import requests
 import re
 
 API_KEY = os.environ["YOUTUBE_API_KEY"]
-CHANNEL_ID = "UCcvVw_7dcvSsiJbJqzVCmsg"
 HTML_FILE = "media.html"
-MAX_VIDEOS = 6
+MAX_VIDEOS = 50
 
 
 def fetch_latest_videos():
@@ -17,10 +16,9 @@ def fetch_latest_videos():
     )
 
     data = requests.get(channel_url).json()
-    print("CHANNEL API RESPONSE:", data)
 
     if not data.get("items"):
-        raise RuntimeError("Channel not found. Check handle or API status.")
+        raise RuntimeError("Channel not found or API error")
 
     uploads_id = data["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
 
@@ -30,7 +28,6 @@ def fetch_latest_videos():
     )
 
     playlist_data = requests.get(playlist_url).json()
-    print("PLAYLIST RESPONSE:", playlist_data)
 
     videos = []
     for item in playlist_data.get("items", []):
@@ -42,12 +39,12 @@ def fetch_latest_videos():
     return videos
 
 
-
 def generate_html(videos):
     cards = ""
+
     for vid, title in videos:
         cards += f"""
-        <div class="bg-gray-50 dark:bg-gray-900 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 w-full max-w-sm">
+        <div class="youtube-card">
           <div class="video-container">
             <iframe src="https://www.youtube.com/embed/{vid}" loading="lazy" allowfullscreen></iframe>
           </div>
@@ -57,9 +54,14 @@ def generate_html(videos):
         </div>
         """
 
+    # 🔁 Duplicate cards for infinite scrolling
+    cards = cards + cards
+
     return f"""
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-10 justify-items-center">
-      {cards}
+    <div class="youtube-scroll-wrapper">
+      <div class="youtube-scroll-track">
+        {cards}
+      </div>
     </div>
     """
 
