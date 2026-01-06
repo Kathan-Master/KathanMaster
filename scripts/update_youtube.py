@@ -9,28 +9,41 @@ MAX_VIDEOS = 6
 
 
 def fetch_latest_videos():
-    # Get uploads playlist
     channel_url = (
         "https://www.googleapis.com/youtube/v3/channels"
         f"?part=contentDetails&id={CHANNEL_ID}&key={API_KEY}"
     )
-    uploads_id = requests.get(channel_url).json()[
-        "items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
 
-    # Get latest uploads (videos + shorts)
+    response = requests.get(channel_url)
+    data = response.json()
+
+    # 🔴 DEBUG OUTPUT (VERY IMPORTANT)
+    print("CHANNEL API RESPONSE:", data)
+
+    # ❌ If API failed, stop gracefully
+    if "items" not in data:
+        raise RuntimeError(
+            "YouTube API error. Check API key, API enablement, or quota."
+        )
+
+    uploads_id = data["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
+
     playlist_url = (
         "https://www.googleapis.com/youtube/v3/playlistItems"
         f"?part=snippet&playlistId={uploads_id}&maxResults={MAX_VIDEOS}&key={API_KEY}"
     )
 
-    data = requests.get(playlist_url).json()
-    return [
-        (
+    playlist_data = requests.get(playlist_url).json()
+    print("PLAYLIST RESPONSE:", playlist_data)
+
+    videos = []
+    for item in playlist_data.get("items", []):
+        videos.append((
             item["snippet"]["resourceId"]["videoId"],
             item["snippet"]["title"]
-        )
-        for item in data.get("items", [])
-    ]
+        ))
+
+    return videos
 
 
 def generate_html(videos):
