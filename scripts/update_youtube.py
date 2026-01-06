@@ -77,22 +77,21 @@ def generate_html(videos):
         cards += f"""
         <div class="youtube-card">
           <div class="video-container">
-            <iframe
-              src="https://www.youtube.com/embed/{vid}"
-              loading="lazy"
-              allowfullscreen>
-            </iframe>
+            <iframe src="https://www.youtube.com/embed/{vid}"
+                    loading="lazy" allowfullscreen></iframe>
           </div>
           <p class="yt-title">{title}</p>
         </div>
         """
 
-    # 🔁 duplicate for infinite loop
+    count = len(videos)
+
+    # duplicate for loop
     cards = cards + cards
 
     return f"""
     <div class="yt-scroll-wrapper">
-      <div class="yt-scroll-track">
+      <div class="yt-scroll-track" style="--card-count:{count}">
         {cards}
       </div>
     </div>
