@@ -47,44 +47,53 @@
 		.yt-scroll-wrapper {
 		  width: 100%;
 		  overflow: hidden;
-		  position: relative;
 		}
 		
 		.yt-scroll-track {
 		  display: grid;
 		  grid-auto-flow: column;
-		  grid-template-rows: repeat(2, 1fr); /* 2 rows */
+		  grid-template-rows: repeat(2, 1fr);
 		  gap: 2rem;
-		  animation: yt-scroll 45s linear infinite;
+		  animation: yt-scroll 22s linear infinite;
 		}
 		
-		/* Pause animation on hover */
 		.yt-scroll-wrapper:hover .yt-scroll-track {
 		  animation-play-state: paused;
 		}
 		
-		/* Bigger cards */
 		.youtube-card {
-		  width: 360px; /* controls size */
+		  width: 360px;
 		}
 		
-		.yt-title {
-		  margin-top: 0.5rem;
-		  font-size: 0.9rem;
-		  text-align: center;
-		  color: #d1d5db;
+		.yt-thumb {
+		  position: relative;
+		  cursor: pointer;
 		}
 		
-		/* Smooth infinite loop */
+		.yt-thumb img {
+		  width: 100%;
+		  border-radius: 12px;
+		}
+		
+		.yt-play-btn {
+		  position: absolute;
+		  inset: 0;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  font-size: 3rem;
+		  color: white;
+		  background: rgba(0,0,0,0.25);
+		}
+		
 		@keyframes yt-scroll {
 		  from {
-		    transform: translateX(0);
+			transform: translateX(0);
 		  }
 		  to {
-		    transform: translateX(-50%);
+			transform: translateX(-100%);
 		  }
 		}
-
 
     </style>
 </head>
