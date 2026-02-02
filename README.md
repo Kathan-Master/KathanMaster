@@ -1,6 +1,12 @@
 <h1 align="center">✨ AI-Powered Portfolio ✨</h1>
 
 <p align="center">
+  <a href="https://github.com/Kathan-Master/KathanMaster/actions">
+    <img src="https://github.com/Kathan-Master/KathanMaster/actions/workflows/daily_update.yml/badge.svg" alt="Daily Portfolio Update">
+  </a>
+</p>
+
+<p align="center">
   <b>Welcome to my personal portfolio!</b><br>
   This project showcases my journey, achievements, and technical skills, leveraging the power of AI to create a dynamic user experience.
 </p>
