@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/Kathan-Master/KathanMaster/actions">
-    <img src="https://github.com/Kathan-Master/KathanMaster/actions/workflows/daily_update.yml/badge.svg" alt="Daily Portfolio Update">
+    <img src="https://github.com/Kathan-Master/KathanMaster/actions/workflows/update_feed.yml/badge.svg" alt="Daily Portfolio Update">
   </a>
 </p>
 
