@@ -1,26 +1,45 @@
-AI-Powered Portfolio
-Welcome to my portfolio! This project showcases my journey and achievements, leveraging the power of AI and automation to keep content fresh and interactive.
+<h1 align="center">✨ AI-Powered Portfolio ✨</h1>
 
-🚀 Key Features
-1. automated Content Updates
-I have implemented a fully automated pipeline using Python and GitHub Actions.
+<p align="center">
+  <b>Welcome to my personal portfolio!</b><br>
+  This project showcases my journey, achievements, and technical skills, leveraging the power of AI to create a dynamic user experience.
+</p>
 
-Daily Updates: My portfolio automatically updates every day at 12:00 UTC.
+<br>
 
-Dynamic Content: The system fetches and features my latest videos, covering topics ranging from technical projects to travel vlogs.
+<h2>🚀 Automated Content Engine</h2>
 
-2. Custom Contact Form (Telegram API)
-To keep communication efficient and cost-effective, I built a custom contact solution using the Telegram API.
+<p>
+  I have built a fully automated pipeline using <b>Python</b> and <b>GitHub Actions</b> to keep this portfolio alive without manual intervention.
+</p>
 
-Direct Messaging: Messages sent through the website are routed directly to my Telegram bot.
+<ul>
+  <li><b>Daily Updates:</b> The system triggers automatically every day at <b>12:00 UTC</b>.</li>
+  <li><b>Video Integration:</b> It fetches my latest content—from technical tutorials to travel vlogs—and embeds them directly into the site.</li>
+</ul>
 
-Serverless Architecture: This cloud-based approach allows for real-time communication without the overhead of traditional backend servers.
+<br>
 
-⚠️ Important Technical Note: Because the contact form runs on a serverless/cloud architecture, the bot may enter a "sleep mode" if it hasn't been used recently.
+<h2>📬 Contact via Telegram API</h2>
 
-If your message doesn't send immediately: Please wait a moment and try again.
+<p>
+  To ensure I receive your messages instantly, I integrated the <b>Telegram API</b>. This serverless solution allows you to send messages directly from the website to my personal Telegram bot without any cost.
+</p>
 
-Second Attempt: Once the instance wakes up, subsequent messages will be delivered instantly.
+<blockquote>
+  <p>
+    <b>⚠️ Note on Message Delivery:</b><br>
+    <sub>
+      Because this system runs on a cloud-based instance, the bot enters "sleep mode" when not in use to save resources.
+      <br><br>
+      <i>If your message takes a moment to send, please have patience!</i> The bot is simply "waking up." If you try sending it a second time, it will go through instantly.
+    </sub>
+  </p>
+</blockquote>
 
-📬 Get in Touch
-Feel free to reach out via the contact form on the site for project inquiries or collaboration. You can also send me a direct email using the address provided in the contact section.
+<br>
+
+<h3>🔗 Connect with Me</h3>
+<p>
+  Feel free to use the contact form or send me a direct email (provided in the form section) for any collaborations.
+</p>
